@@ -1,5 +1,6 @@
 import time
 import requests
+from playsound import playsound
 
 URL = "https://registrar.ontariotechu.ca/winter-2022.php"
 delaySeconds = 10
@@ -16,6 +17,8 @@ while True:
     length = len(response.content)
     if length <= MIN or length >= MAX:
         print(f"CHECK PAGE! {URL}")
+        playsound('sound.mp3')
+        break
     else:
         print(f"[{counter}] No Change..")
     time.sleep(60)
